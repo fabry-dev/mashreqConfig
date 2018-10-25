@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "QInputDialog"
 
 
 #define PATH_DEFAULT "/home/fred/Dropbox/Taf/Cassiopee/mashreq/files/"
@@ -11,6 +11,15 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
+    bool ok;
+        QString text = QInputDialog::getText(this,"Authentification" ,"Enter password", QLineEdit::Normal,
+                                             "", &ok);
+
+
+        if(text!="1234cass")
+            exit(0);
+
     ui->setupUi(this);
 
     QStringList params =QApplication::arguments();
